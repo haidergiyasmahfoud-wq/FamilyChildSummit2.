@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملتقى الطفل والأسرة الثاني - 2026-10-31 | سلطنة عُمان</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;800;900&family=Reem+Kufi+Fun:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #f0ebe0;
+            --bg-secondary: #e6dfd2;
+            --surface: rgba(255, 252, 245, 0.8);
+            --surface-glass: rgba(255, 252, 245, 0.35);
+            --text: #1a1714;
+            --text-light: #524b43;
+            --coral: #ff3860;
+            --coral-glow: #ff7b9c;
+            --ocean: #00c9a7;
+            --ocean-glow: #5eead4;
+            --sun: #ffd000;
+            --sun-glow: #ffe866;
+            --forest: #20c997;
+            --berry: #e63950;
+            --gold: #ff9500;
+            --purple: #8b5cf6;
+            --purple-glow: #b794f4;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #128C7E;
+            --radius-xl: 3rem;
+            --radius-lg: 2.2rem;
+            --radius-md: 1.6rem;
+            --radius-sm: 1rem;
+            --blur: blur(22px);
+            --transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 25%, rgba(255,56,96,0.07) 0%, transparent 45%),
+                radial-gradient(circle at 75% 70%, rgba(0,201,167,0.07) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(255,208,0,0.05) 0%, transparent 55%);
+            background-attachment: fixed;
+        }
+
+        /* ============ خلفية الصفحة الرئيسية - صور المؤتمر ============ */
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .hero-bg-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .hero-bg-slide.active {
+            opacity: 0.13;
+        }
+
+        .hero-gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(240, 235, 224, 0.3) 0%,
+                rgba(240, 235, 224, 0.7) 40%,
+                rgba(240, 235, 224, 0.85) 70%,
+                rgba(240, 235, 224, 0.95) 100%
+            );
+            z-index: 0;
+        }
+
+        #progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--coral), var(--sun), var(--ocean), var(--purple));
+            z-index: 10000;
+            transition: width 0.1s linear;
+            border-radius: 0 6px 6px 0;
+            box-shadow: 0 0 25px var(--coral), 0 0 50px var(--sun);
+            animation: progressGlow 2s infinite alternate;
+        }
+
+        @keyframes progressGlow {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.8); }
+        }
+
+        .floating-particles {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(3px);
+            animation: floatParticle 10s infinite ease-in-out;
+        }
+
+        @keyframes floatParticle {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+            25% { transform: translate(30px, -40px) scale(1.4); opacity: 0.5; }
+            50% { transform: translate(-20px, 25px) scale(0.8); opacity: 0.3; }
+            75% { transform: translate(40px, 15px) scale(1.2); opacity: 0.6; }
+        }
+
+        /* ============ NAVBAR ============ */
+        .navbar {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 92%;
+            max-width: 1300px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: var(--radius-xl);
+            padding: 10px 28px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.06), 0 0 35px rgba(255,56,96,0.2);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.12), 0 0 50px rgba(255,56,96,0.35);
+        }
+
+        .nav-logo {
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            object-fit: contain;
+            background: #fff;
+            border: 2px solid var(--coral);
+            box-shadow: 0 0 25px var(--coral), 0 0 50px var(--coral-glow);
+            transition: var(--transition);
+            flex-shrink: 0;
+            animation: logoNeon 3s infinite alternate;
+        }
+
+        @keyframes logoNeon {
+            0% { box-shadow: 0 0 20px var(--coral), 0 0 45px var(--coral-glow); }
+            100% { box-shadow: 0 0 40px var(--coral), 0 0 75px var(--sun-glow); }
+        }
+
+        .navbar.scrolled .nav-logo { height: 45px; width: 45px; }
+        .nav-logo:hover { transform: scale(1.15) rotate(10deg); box-shadow: 0 0 55px var(--coral), 0 0 90px var(--purple-glow); }
+
+        .nav-links { display: flex; list-style: none; gap: 5px; align-items: center; }
+
+        .nav-links a {
+            text-decoration: none; color: var(--text); font-weight: 700;
+            padding: 10px 20px; border-radius: 50px; transition: var(--transition);
+            font-size: 0.95rem; position: relative; overflow: hidden; letter-spacing: 0.3px;
+        }
+
+        .nav-links a::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, var(--coral), var(--purple));
+            border-radius: 50px; transform: scale(0);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); z-index: -1; opacity: 0.9;
+        }
+
+        .nav-links a:hover::before, .nav-links a.active::before { transform: scale(1); }
+        .nav-links a:hover, .nav-links a.active { color: #fff; text-shadow: 0 0 15px rgba(255,255,255,0.8); }
+
+        .nav-links a.market-tab {
+            background: linear-gradient(135deg, var(--ocean), #0d9488);
+            color: #fff !important;
+            font-weight: 800;
+            box-shadow: 0 0 25px rgba(0,201,167,0.5);
+            animation: marketGlow 2s infinite alternate;
+        }
+
+        .nav-links a.market-tab::before {
+            background: linear-gradient(135deg, var(--gold), var(--sun));
+        }
+
+        .nav-links a.market-tab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(0,201,167,0.8), 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        @keyframes marketGlow {
+            0% { box-shadow: 0 0 20px rgba(0,201,167,0.4); }
+            100% { box-shadow: 0 0 35px rgba(0,201,167,0.7), 0 0 60px rgba(255,149,0,0.3); }
+        }
+
+        .nav-icons { display: flex; gap: 10px; align-items: center; }
+
+        .icon-btn {
+            width: 42px; height: 42px; border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.08); background: rgba(255,255,255,0.8);
+            cursor: pointer; font-size: 1.1rem; transition: var(--transition);
+            display: flex; align-items: center; justify-content: center; color: var(--text);
+            backdrop-filter: blur(5px);
+        }
+
+        .icon-btn:hover {
+            background: var(--coral); color: #fff; border-color: var(--coral);
+            transform: rotate(15deg) scale(1.15); box-shadow: 0 0 30px var(--coral);
+        }
+
+        .menu-toggle {
+            display: none; background: rgba(255,255,255,0.7);
+            border: 1px solid rgba(0,0,0,0.06); font-size: 1.5rem;
+            cursor: pointer; color: var(--text); width: 45px; height: 45px;
+            border-radius: 50%; backdrop-filter: blur(10px); transition: var(--transition);
+        }
+
+        .menu-toggle:hover { background: var(--coral); color: #fff; transform: rotate(90deg); }
+
+        /* ============ SIDE MENU ============ */
+        .side-menu {
+            position: fixed; top: 0; right: -400px; width: 360px; height: 100vh;
+            background: rgba(255,255,255,0.9); backdrop-filter: blur(35px);
+            z-index: 1001; padding: 40px 30px;
+            transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: -30px 0 80px rgba(0,0,0,0.12);
+            border-left: 1px solid rgba(0,0,0,0.05); overflow-y: auto;
+        }
+
+        .side-menu.open { right: 0; }
+
+        .side-menu-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
+        }
+
+        .side-menu-overlay.show { opacity: 1; pointer-events: auto; }
+
+        .side-menu-logo {
+            display: block; margin: 0 auto 30px; height: 90px; width: 90px;
+            border-radius: 50%; object-fit: contain; background: #fff;
+            border: 3px solid var(--coral); box-shadow: 0 0 40px var(--coral);
+        }
+
+        .side-menu-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+        .side-menu-links a {
+            text-decoration: none; color: var(--text); font-weight: 700; font-size: 1.1rem;
+            padding: 16px 22px; border-radius: var(--radius-md); display: block;
+            transition: var(--transition); background: rgba(0,0,0,0.02);
+        }
+
+        .side-menu-links a:hover {
+            background: var(--coral); color: #fff; transform: translateX(-10px);
+            box-shadow: 0 10px 30px rgba(255,56,96,0.3);
+        }
+
+        .side-menu-links a.market-side {
+            background: linear-gradient(135deg, var(--ocean), #0d9488);
+            color: #fff !important;
+            box-shadow: 0 0 20px rgba(0,201,167,0.4);
+        }
+
+        .side-menu-links a.market-side:hover {
+            background: linear-gradient(135deg, #0d9488, var(--gold));
+            transform: translateX(-10px);
+            box-shadow: 0 10px 30px rgba(0,201,167,0.5);
+        }
+
+        .side-menu-close {
+            position: absolute; top: 20px; left: 20px;
+            background: rgba(0,0,0,0.04); border: none; width: 44px; height: 44px;
+            border-radius: 50%; cursor: pointer; font-size: 1.3rem; color: var(--text);
+            transition: var(--transition);
+        }
+
+        .side-menu-close:hover { background: var(--berry); color: #fff; transform: rotate(90deg); }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; position: relative; padding: 130px 30px 60px;
+            overflow: hidden;
+        }
+
+        .hero-container { position: relative; z-index: 2; max-width: 800px; }
+
+        .hero-logo-frame {
+            display: inline-block; background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(30px); border-radius: 50%; padding: 25px;
+            margin-bottom: 30px; border: 3px solid var(--coral);
+            box-shadow: 0 0 80px var(--coral), 0 0 120px var(--coral-glow), 0 25px 60px rgba(0,0,0,0.1);
+            animation: floatLogo 5s ease-in-out infinite, neonPulseFrame 2.5s infinite;
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0) scale(1); }
+            25% { transform: translateY(-18px) scale(1.04); }
+            50% { transform: translateY(-5px) scale(1.07); }
+            75% { transform: translateY(-22px) scale(1.03); }
+        }
+
+        @keyframes neonPulseFrame {
+            0% { box-shadow: 0 0 70px var(--coral), 0 0 110px var(--coral-glow), 0 25px 60px rgba(0,0,0,0.1); }
+            50% { box-shadow: 0 0 100px var(--purple), 0 0 140px var(--purple-glow), 0 25px 60px rgba(0,0,0,0.1); }
+            100% { box-shadow: 0 0 70px var(--coral), 0 0 110px var(--coral-glow), 0 25px 60px rgba(0,0,0,0.1); }
+        }
+
+        .hero-logo {
+            width: 220px; height: 220px; border-radius: 50%;
+            object-fit: contain; background: #fff; display: block;
+            filter: drop-shadow(0 0 25px var(--coral));
+        }
+
+        .hero-badge {
+            display: inline-block; background: linear-gradient(135deg, var(--coral), var(--berry));
+            color: #fff; padding: 10px 30px; border-radius: 50px; font-weight: 800;
+            font-size: 1rem; letter-spacing: 2px;
+            box-shadow: 0 0 35px var(--coral), 0 10px 25px rgba(0,0,0,0.2);
+            animation: badgePulse 2s infinite;
+        }
+
+        @keyframes badgePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-badges-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .hero-badge-market {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--ocean), #0d9488);
+            color: #fff;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            box-shadow: 0 0 35px rgba(0,201,167,0.5), 0 10px 25px rgba(0,0,0,0.2);
+            cursor: pointer;
+            border: none;
+            font-family: 'Tajawal', sans-serif;
+            transition: var(--transition);
+            text-decoration: none;
+            animation: badgePulse 2s infinite;
+            animation-delay: 0.3s;
+        }
+
+        .hero-badge-market:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 50px rgba(0,201,167,0.7), 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .hero h1 {
+            font-family: 'El Messiri', sans-serif;
+            font-size: clamp(2.8rem, 7vw, 5rem); font-weight: 700; line-height: 1.3;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--coral), var(--sun), var(--ocean), var(--purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; filter: drop-shadow(0 0 30px var(--coral));
+            animation: titleShine 4s infinite alternate;
+        }
+
+        @keyframes titleShine {
+            0% { filter: drop-shadow(0 0 25px var(--coral)); }
+            100% { filter: drop-shadow(0 0 50px var(--sun)); }
+        }
+
+        .hero-subtitle { font-size: 1.3rem; color: var(--text-light); margin-bottom: 40px; font-weight: 500; }
+
+        /* ============ COUNTDOWN ============ */
+        .countdown {
+            display: flex; justify-content: center; gap: 18px;
+            margin: 40px 0; flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(255,255,255,0.4); backdrop-filter: blur(25px);
+            border: 1px solid rgba(0,0,0,0.06); border-radius: var(--radius-lg);
+            padding: 25px 18px; min-width: 100px; transition: var(--transition);
+            position: relative; overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            animation: countdownPulse 2.5s infinite;
+        }
+
+        @keyframes countdownPulse {
+            0% { box-shadow: 0 15px 35px rgba(0,0,0,0.06); }
+            50% { box-shadow: 0 20px 50px var(--coral-glow); }
+            100% { box-shadow: 0 15px 35px rgba(0,0,0,0.06); }
+        }
+
+        .countdown-item::after {
+            content: ''; position: absolute; bottom: 0; left: 0;
+            width: 100%; height: 5px; background: var(--coral);
+            border-radius: 0 0 22px 22px;
+        }
+        .countdown-item:nth-child(2)::after { background: var(--ocean); }
+        .countdown-item:nth-child(3)::after { background: var(--sun); }
+        .countdown-item:nth-child(4)::after { background: var(--purple); }
+
+        .countdown-item:hover {
+            transform: translateY(-15px) scale(1.06);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15), 0 0 50px var(--coral);
+        }
+
+        .countdown-number {
+            font-size: 3.2rem; font-weight: 900; display: block; line-height: 1;
+            font-family: 'El Messiri', sans-serif; text-shadow: 0 0 20px currentColor;
+        }
+
+        .countdown-item:nth-child(1) .countdown-number { color: var(--coral); }
+        .countdown-item:nth-child(2) .countdown-number { color: var(--ocean); }
+        .countdown-item:nth-child(3) .countdown-number { color: var(--sun); }
+        .countdown-item:nth-child(4) .countdown-number { color: var(--purple); }
+
+        .countdown-label { font-size: 0.9rem; color: var(--text-light); margin-top: 5px; font-weight: 600; }
+
+        /* ============ BUTTONS ============ */
+        .btn {
+            padding: 18px 40px; border-radius: 50px; text-decoration: none;
+            font-weight: 800; font-size: 1.1rem; transition: var(--transition);
+            border: none; cursor: pointer; display: inline-flex; align-items: center;
+            gap: 12px; font-family: 'Tajawal', sans-serif; letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--coral), var(--berry));
+            color: #fff; box-shadow: 0 20px 40px rgba(255,56,96,0.4), 0 0 35px var(--coral);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #ff4f75, #ff1a40);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(255,56,96,0.6), 0 0 55px var(--purple);
+        }
+
+        .btn-outline {
+            background: rgba(255,255,255,0.4); backdrop-filter: blur(20px);
+            color: var(--text); border: 2px solid var(--ocean);
+        }
+
+        .btn-outline:hover {
+            background: var(--ocean); color: #fff; border-color: var(--ocean);
+            transform: translateY(-8px) scale(1.05); box-shadow: 0 0 45px var(--ocean);
+        }
+
+        /* ============ WHATSAPP BUTTON ============ */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            z-index: 998;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark));
+            color: #fff;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 45px rgba(37,211,102,0.4), 0 0 35px rgba(37,211,102,0.6);
+            transition: var(--transition);
+            text-decoration: none;
+            animation: whatsappPulse 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 25px 55px rgba(37,211,102,0.7), 0 0 60px rgba(37,211,102,0.9);
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% { box-shadow: 0 20px 45px rgba(37,211,102,0.4), 0 0 35px rgba(37,211,102,0.6); }
+            50% { box-shadow: 0 25px 55px rgba(37,211,102,0.7), 0 0 60px rgba(37,211,102,0.9); }
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 75px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.85);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .whatsapp-btn:hover .whatsapp-tooltip {
+            opacity: 1;
+            right: 80px;
+        }
+
+        /* ============ SECTIONS ============ */
+        .section { padding: 80px 30px; max-width: 1400px; margin: 0 auto; position: relative; }
+
+        .section-header { text-align: center; margin-bottom: 65px; }
+
+        .section-badge {
+            display: inline-block; background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(25px); padding: 10px 26px; border-radius: 50px;
+            font-weight: 700; font-size: 0.95rem; color: var(--coral);
+            border: 1px solid var(--coral); margin-bottom: 18px;
+            box-shadow: 0 0 25px var(--coral-glow);
+        }
+
+        .section-title {
+            font-family: 'El Messiri', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; margin-bottom: 12px;
+        }
+
+        .section-line {
+            width: 100px; height: 5px;
+            background: linear-gradient(90deg, var(--coral), var(--sun), var(--ocean));
+            border-radius: 3px; margin: 15px auto 0; box-shadow: 0 0 25px var(--coral);
+        }
+
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px;
+        }
+
+        .stat-card {
+            background: var(--surface-glass); backdrop-filter: var(--blur);
+            border: 1px solid rgba(0,0,0,0.06); border-radius: var(--radius-lg);
+            padding: 35px 25px; text-align: center; transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1), 0 0 40px var(--coral);
+        }
+
+        .stat-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+        .stat-number { font-family: 'El Messiri', sans-serif; font-size: 2.8rem; font-weight: 900; color: var(--coral); }
+        .stat-card:nth-child(2) .stat-number { color: var(--ocean); }
+        .stat-card:nth-child(3) .stat-number { color: var(--sun); }
+        .stat-card:nth-child(4) .stat-number { color: var(--purple); }
+
+        /* ============ TABS ============ */
+        .tab-system { display: flex; gap: 30px; flex-wrap: wrap; }
+        .tab-sidebar { flex: 0 0 280px; display: flex; flex-direction: column; gap: 8px; }
+
+        .tab-pill {
+            padding: 16px 22px; border: none;
+            background: var(--surface-glass); backdrop-filter: var(--blur);
+            border-radius: var(--radius-md); cursor: pointer; font-weight: 700;
+            font-family: 'Tajawal', sans-serif; font-size: 1rem; text-align: right;
+            transition: var(--transition); border: 2px solid transparent;
+            display: flex; align-items: center; gap: 12px; color: var(--text);
+        }
+
+        .tab-pill:hover, .tab-pill.active {
+            background: linear-gradient(135deg, var(--coral), var(--purple));
+            color: #fff; border-color: var(--coral); transform: translateX(-8px);
+            box-shadow: 0 15px 35px rgba(255,56,96,0.3);
+        }
+
+        .tab-content-area { flex: 1; min-width: 300px; }
+        .tab-panel { display: none; animation: fadeSlide 0.6s ease; }
+        .tab-panel.active { display: block; }
+
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .cards-masonry {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px;
+        }
+
+        .glass-card {
+            background: var(--surface-glass); backdrop-filter: var(--blur);
+            border: 1px solid rgba(0,0,0,0.06); border-radius: var(--radius-lg);
+            padding: 32px 22px; transition: var(--transition); cursor: pointer;
+            position: relative; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-12px) scale(1.04);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12), 0 0 50px var(--coral);
+            border-color: var(--coral);
+        }
+
+        .glass-card .card-emoji { font-size: 3.5rem; display: block; margin-bottom: 15px; filter: drop-shadow(0 0 15px var(--coral)); }
+        .glass-card h4 { font-family: 'El Messiri', sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+        .glass-card .card-hint { font-size: 0.85rem; color: var(--coral); font-weight: 700; opacity: 0; transform: translateY(10px); transition: var(--transition); }
+        .glass-card:hover .card-hint { opacity: 1; transform: translateY(0); }
+
+        /* ============ TIMELINE ============ */
+        .timeline-calendar {
+            display: flex; overflow-x: auto; gap: 12px;
+            padding: 20px 0; scroll-snap-type: x mandatory;
+        }
+
+        .timeline-day {
+            flex: 0 0 85px; height: 100px;
+            background: var(--surface-glass); backdrop-filter: var(--blur);
+            border-radius: var(--radius-md); display: flex; flex-direction: column;
+            align-items: center; justify-content: center; cursor: pointer;
+            transition: var(--transition); scroll-snap-align: start;
+            border: 2px solid transparent; font-weight: 700;
+        }
+
+        .timeline-day.has-event {
+            background: var(--coral); color: #fff; border-color: var(--coral);
+            box-shadow: 0 15px 35px rgba(255,56,96,0.4); animation: pulse-day 2s infinite;
+        }
+
+        @keyframes pulse-day {
+            0%, 100% { box-shadow: 0 15px 35px rgba(255,56,96,0.4); }
+            50% { box-shadow: 0 20px 50px rgba(255,56,96,0.7); }
+        }
+
+        .timeline-day:hover { transform: translateY(-10px) scale(1.1); }
+        .timeline-day .day-num { font-size: 1.9rem; font-family: 'El Messiri', sans-serif; }
+        .timeline-day .day-label { font-size: 0.8rem; margin-top: 3px; }
+
+        /* ============ FLAGS ============ */
+        .flags-circle {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 25px;
+        }
+
+        .flag-circle-item { text-align: center; cursor: pointer; transition: var(--transition); }
+        .flag-circle-item:hover { transform: translateY(-12px) scale(1.12); }
+
+        .flag-circle {
+            width: 95px; height: 95px; border-radius: 50%;
+            background: var(--surface-glass); backdrop-filter: var(--blur);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 3.2rem; margin: 0 auto 10px;
+            border: 2px solid rgba(0,0,0,0.06); transition: var(--transition);
+        }
+
+        .flag-circle-item:hover .flag-circle {
+            background: var(--coral); border-color: var(--coral);
+            box-shadow: 0 20px 40px rgba(255,56,96,0.4);
+        }
+
+        /* ============ MODALS ============ */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px); z-index: 2000;
+            display: none; align-items: center; justify-content: center;
+        }
+
+        .modal-overlay.show { display: flex; }
+
+        .modal {
+            background: rgba(255,255,255,0.92); backdrop-filter: blur(30px);
+            border-radius: var(--radius-xl); padding: 50px 40px;
+            max-width: 600px; width: 90%; position: relative;
+            animation: modalPop 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            max-height: 85vh; overflow-y: auto; border: 2px solid var(--coral);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.2), 0 0 80px var(--coral);
+        }
+
+        @keyframes modalPop {
+            from { transform: scale(0.7) translateY(40px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute; top: 15px; right: 15px;
+            background: rgba(0,0,0,0.04); border: none;
+            width: 48px; height: 48px; border-radius: 50%;
+            cursor: pointer; font-size: 1.5rem; transition: var(--transition);
+        }
+
+        .modal-close:hover { background: var(--berry); color: #fff; transform: rotate(90deg); }
+
+        /* Seminars Modal */
+        .seminars-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            z-index: 2500;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .seminars-modal-overlay.show { display: flex; }
+
+        .seminars-modal {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(30px);
+            border-radius: var(--radius-xl);
+            width: 95%;
+            max-width: 1200px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 40px 35px;
+            position: relative;
+            animation: modalPop 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 2px solid var(--coral);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.2), 0 0 80px var(--coral);
+        }
+
+        .seminars-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--coral);
+            color: #fff;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(255,56,96,0.4);
+        }
+
+        .seminars-modal-close:hover {
+            background: #ff1a40;
+            transform: rotate(90deg);
+            box-shadow: 0 15px 40px rgba(255,56,96,0.6);
+        }
+
+        /* Image Modal */
+        .image-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(15px);
+            z-index: 3000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .image-modal-overlay.show { display: flex; }
+
+        .image-modal-container {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            animation: modalPop 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: default;
+        }
+
+        .image-modal-container img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 20px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 100px rgba(0,201,167,0.3);
+            border: 3px solid rgba(255,255,255,0.2);
+            object-fit: contain;
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--coral);
+            color: #fff;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(255,56,96,0.5);
+            z-index: 10;
+        }
+
+        .image-modal-close:hover {
+            background: #ff1a40;
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 15px 40px rgba(255,56,96,0.7);
+        }
+
+        .image-modal-zoom-hint {
+            position: absolute;
+            bottom: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        /* ============ CHATBOT ============ */
+        .chatbot {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 997;
+        }
+
+        .chatbot-btn {
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--coral), var(--berry));
+            color: #fff;
+            border: none;
+            font-size: 1.7rem;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 45px rgba(255,56,96,0.4), 0 0 35px var(--coral);
+        }
+
+        .chatbot-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 25px 55px rgba(255,56,96,0.6), 0 0 50px var(--coral);
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 380px;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(25px);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.2);
+            display: none;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .chatbot-window.show {
+            display: block;
+            animation: fadeSlide 0.4s ease;
+        }
+        
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--coral), var(--purple));
+            color: #fff;
+            padding: 18px 22px;
+            font-weight: 700;
+            font-family: 'El Messiri', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chatbot-body {
+            padding: 22px;
+            max-height: 350px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .bot-message, .user-message {
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 85%;
+            animation: messageSlide 0.3s ease;
+        }
+
+        @keyframes messageSlide {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .bot-message {
+            background: rgba(0,0,0,0.03);
+            color: var(--text);
+            align-self: flex-start;
+            border-bottom-right-radius: 4px;
+        }
+
+        .user-message {
+            background: var(--coral);
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-left-radius: 4px;
+        }
+
+        .chatbot-typing {
+            align-self: flex-start;
+            padding: 8px 16px;
+            color: var(--text-light);
+            font-size: 0.8rem;
+            display: none;
+        }
+
+        .chatbot-typing.show { display: block; }
+
+        .typing-dots {
+            display: inline-flex;
+            gap: 4px;
+        }
+
+        .typing-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--coral);
+            animation: dotPulse 1.4s infinite;
+        }
+
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes dotPulse {
+            0%, 60%, 100% { transform: scale(0.5); opacity: 0.3; }
+            30% { transform: scale(1); opacity: 1; }
+        }
+
+        .chatbot-input {
+            display: flex;
+            border-top: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            border: none;
+            padding: 16px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.9rem;
+            background: transparent;
+            color: var(--text);
+        }
+
+        .chatbot-input input::placeholder { color: var(--text-light); }
+        .chatbot-input input:focus { outline: none; }
+
+        .chatbot-input button {
+            background: var(--coral);
+            color: #fff;
+            border: none;
+            padding: 0 28px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .chatbot-input button:hover { background: #ff1a40; }
+
+        .chatbot-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 12px 22px;
+            border-top: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .suggestion-chip {
+            padding: 8px 16px;
+            background: rgba(255,56,96,0.1);
+            border: 1px solid rgba(255,56,96,0.2);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+            color: var(--coral);
+            font-weight: 600;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .suggestion-chip:hover {
+            background: var(--coral);
+            color: #fff;
+            border-color: var(--coral);
+            transform: translateY(-2px);
+        }
+
+        /* ============ BACK TO TOP ============ */
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--ocean);
+            color: #fff;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 996;
+            display: none;
+            box-shadow: 0 15px 35px rgba(0,201,167,0.4);
+            transition: var(--transition);
+        }
+
+        .back-to-top:hover { transform: translateY(-8px); box-shadow: 0 20px 45px rgba(0,201,167,0.6); }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background: rgba(15,13,10,0.96);
+            backdrop-filter: blur(20px);
+            color: #ccc;
+            text-align: center;
+            padding: 55px 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-logo {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            object-fit: contain;
+            background: #fff;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px solid var(--coral);
+            box-shadow: 0 0 40px var(--coral);
+        }
+
+        .footer a { color: var(--gold); text-decoration: none; font-weight: 700; }
+
+        /* ============ DARK MODE ============ */
+        body.dark-mode {
+            --bg: #0c0a08;
+            --surface: rgba(25,22,20,0.85);
+            --surface-glass: rgba(25,22,20,0.5);
+            --text: #f2e8d5;
+            --text-light: #b5a58c;
+            background-image: 
+                radial-gradient(circle at 25% 30%, rgba(255,56,96,0.12) 0%, transparent 45%),
+                radial-gradient(circle at 70% 65%, rgba(0,201,167,0.12) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(255,208,0,0.08) 0%, transparent 55%);
+        }
+        body.dark-mode .hero-gradient-overlay {
+            background: linear-gradient(
+                180deg,
+                rgba(12, 10, 8, 0.5) 0%,
+                rgba(12, 10, 8, 0.8) 40%,
+                rgba(12, 10, 8, 0.9) 70%,
+                rgba(12, 10, 8, 0.95) 100%
+            );
+        }
+        body.dark-mode .hero-bg-slide.active { opacity: 0.08; }
+        body.dark-mode .navbar { background: rgba(25,22,20,0.8); border-color: rgba(255,255,255,0.06); }
+        body.dark-mode .glass-card, body.dark-mode .stat-card, body.dark-mode .countdown-item, 
+        body.dark-mode .tab-pill, body.dark-mode .timeline-day, body.dark-mode .flag-circle { 
+            background: rgba(30,27,25,0.5); border-color: rgba(255,255,255,0.08); 
+        }
+        body.dark-mode .nav-logo, body.dark-mode .hero-logo, body.dark-mode .side-menu-logo, 
+        body.dark-mode .footer-logo { background: #1a1815; }
+        body.dark-mode .side-menu { background: rgba(25,22,20,0.92); }
+        body.dark-mode .modal, body.dark-mode .seminars-modal { background: rgba(25,22,20,0.95); color: #f2e8d5; }
+        body.dark-mode .chatbot-window { background: rgba(25,22,20,0.95); }
+        body.dark-mode .bot-message { background: rgba(255,255,255,0.04); }
+        body.dark-mode .btn-outline { border-color: var(--ocean); color: #ddd; }
+        body.dark-mode .countdown-item { background: rgba(30,27,25,0.55); }
+        body.dark-mode .suggestion-chip { background: rgba(255,56,96,0.15); }
+        body.dark-mode .image-modal-container img { border-color: rgba(255,255,255,0.1); }
+        body.dark-mode .nav-links a.market-tab { background: linear-gradient(135deg, #0d9488, var(--ocean)); }
+        body.dark-mode .side-menu-links a.market-side { background: linear-gradient(135deg, #0d9488, var(--ocean)); }
+        body.dark-mode .hero-badge-market { background: linear-gradient(135deg, #0d9488, var(--ocean)); }
+        body.dark-mode .seminars-modal-overlay { background: rgba(0,0,0,0.8); }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 1024px) {
+            .tab-system { flex-direction: column; }
+            .tab-sidebar { flex-direction: row; flex-wrap: wrap; overflow-x: auto; padding-bottom: 10px; }
+            .tab-pill { flex-shrink: 0; white-space: nowrap; }
+            .seminars-modal { width: 98%; padding: 25px 18px; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { width: 95%; padding: 10px 18px; }
+            .nav-links { display: none; }
+            .menu-toggle { display: flex; align-items: center; justify-content: center; }
+            .nav-logo { height: 45px; width: 45px; }
+            .hero-logo { width: 140px; height: 140px; }
+            .hero-logo-frame { padding: 15px; }
+            .hero-badges-row { flex-direction: column; gap: 10px; }
+            .hero-badge, .hero-badge-market { font-size: 0.85rem; padding: 8px 22px; }
+            .countdown-item { min-width: 75px; padding: 18px 10px; }
+            .countdown-number { font-size: 2.2rem; }
+            .timeline-day { flex: 0 0 65px; height: 80px; }
+            .chatbot-window { width: 320px; right: -10px; }
+            .side-menu { width: 85vw; right: -85vw; }
+            .chatbot-btn { width: 52px; height: 52px; font-size: 1.4rem; }
+            .whatsapp-btn { width: 52px; height: 52px; font-size: 1.7rem; bottom: 85px; }
+            .seminars-modal { padding: 20px 15px; border-radius: var(--radius-lg); }
+        }
+
+        @media (max-width: 480px) {
+            .section { padding: 40px 15px; }
+            .cards-masonry { grid-template-columns: 1fr; }
+            .flag-circle { width: 70px; height: 70px; font-size: 2.4rem; }
+            .chatbot-window { width: 290px; }
+            .image-modal-container { max-width: 95vw; max-height: 85vh; }
+            .whatsapp-btn { width: 48px; height: 48px; font-size: 1.5rem; bottom: 80px; right: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Particles -->
+    <div class="floating-particles" id="particles"></div>
+    
+    <!-- Progress Bar -->
+    <div id="progress-bar"></div>
+
+    <!-- ============ SIDE MENU ============ -->
+    <div class="side-menu-overlay" id="sideMenuOverlay"></div>
+    <div class="side-menu" id="sideMenu">
+        <button class="side-menu-close" id="sideMenuClose">&times;</button>
+        <img src="https://i.imgur.com/9JqjNvn.png" alt="شعار الملتقى" class="side-menu-logo" onerror="this.src='https://via.placeholder.com/90x90/ffffff/ff3860?text=CF'">
+        <ul class="side-menu-links">
+            <li><a href="#home" data-close>🏠 الرئيسية</a></li>
+            <li><a href="#about" data-close>ℹ️ عن الملتقى</a></li>
+            <li><a href="#" id="sideSeminarsLink" data-close>✨ الندوات المرافقة</a></li>
+            <li><a href="#competitions" data-close>🏆 المسابقات</a></li>
+            <li><a href="#calendar" data-close>📅 المناسبات</a></li>
+            <li><a href="#communities" data-close>🌍 الجاليات</a></li>
+            <li><a href="#contact" data-close>📧 تواصل معنا</a></li>
+            <li><a href="#" class="market-side" id="marketSideLink" data-close>🛒 سوق المنتجات الدولية</a></li>
+        </ul>
+    </div>
+
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar" id="navbar">
+        <img src="https://i.imgur.com/9JqjNvn.png" alt="شعار الملتقى" class="nav-logo" onerror="this.src='https://via.placeholder.com/55x55/ffffff/ff3860?text=CF'">
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">الرئيسية</a></li>
+            <li><a href="#about">عن الملتقى</a></li>
+            <li><a href="#competitions">المسابقات</a></li>
+            <li><a href="#calendar">المناسبات</a></li>
+            <li><a href="#communities">الجاليات</a></li>
+            <li><a href="#contact">تواصل</a></li>
+            <li><a href="#" class="market-tab" id="marketTabLink">🛒 سوق المنتجات</a></li>
+        </ul>
+        <div class="nav-icons">
+            <button class="icon-btn" id="darkToggle" aria-label="الوضع الليلي"><i class="fas fa-moon"></i></button>
+            <button class="menu-toggle" id="menuToggle" aria-label="القائمة"><i class="fas fa-bars-staggered"></i></button>
+        </div>
+    </nav>
+
+    <!-- ============ WHATSAPP BUTTON ============ -->
+    <a href="https://wa.me/963933438019" target="_blank" class="whatsapp-btn" title="تواصل معنا عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">واتساب: 00963933438019</span>
+    </a>
+
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero" id="home">
+        <!-- خلفية صور المؤتمر -->
+        <div class="hero-background" id="heroBackground"></div>
+        <!-- غطاء متدرج -->
+        <div class="hero-gradient-overlay"></div>
+
+        <div class="hero-container">
+            <div class="hero-logo-frame">
+                <img src="https://i.imgur.com/9JqjNvn.png" alt="شعار الملتقى" class="hero-logo" onerror="this.src='https://via.placeholder.com/220x220/ffffff/ff3860?text=CF'">
+            </div>
+            
+            <!-- زران جنباً إلى جنب -->
+            <div class="hero-badges-row">
+                <span class="hero-badge">أكتوبر 2026</span>
+                <button class="hero-badge-market" onclick="openMarketModal(event)">
+                    🛒 سوق المنتجات الدولية
+                </button>
+            </div>
+            
+            <h1>ملتقى الطفل والأسرة الثاني</h1>
+            <p class="hero-subtitle">معاً نبني مستقبل أطفالنا - تجربة شاملة تجمع التوعية والترفيه</p>
+            
+            <!-- العد التنازلي -->
+            <div class="countdown" id="countdown">
+                <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">يوم</span></div>
+                <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">ساعة</span></div>
+                <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">دقيقة</span></div>
+                <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">ثانية</span></div>
+            </div>
+            
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <button class="btn btn-primary" id="openSeminarsBtn"><i class="fas fa-sparkles"></i> استكشف الندوات المرافقة</button>
+                <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> تواصل معنا</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SEMINARS MODAL ============ -->
+    <div class="seminars-modal-overlay" id="seminarsModalOverlay">
+        <div class="seminars-modal" id="seminarsModal">
+            <button class="seminars-modal-close" id="seminarsModalClose">&times;</button>
+            <div class="section-header">
+                <span class="section-badge">الندوات المرافقة</span>
+                <h2 class="section-title">اكتشف جميع الندوات المرافقة</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="tab-system">
+                <div class="tab-sidebar" id="tabSidebar">
+                    <button class="tab-pill active" data-tab="tab-finance">🧠 التوعية المالية</button>
+                    <button class="tab-pill" data-tab="tab-legal">⚖️ القانونية والأمنية</button>
+                    <button class="tab-pill" data-tab="tab-family">👨‍👩‍👧‍👦 الأسرة والطفولة</button>
+                    <button class="tab-pill" data-tab="tab-environment">🌿 البيئية والاستدامة</button>
+                    <button class="tab-pill" data-tab="tab-agriculture">🐝 الزراعية والحيوانية</button>
+                    <button class="tab-pill" data-tab="tab-entertainment">🎨 الترفيهية</button>
+                    <button class="tab-pill" data-tab="tab-zones">🗺️ المناطق التفاعلية</button>
+                </div>
+                <div class="tab-content-area" id="tabContentArea"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ ABOUT SECTION ============ -->
+    <section class="section" id="about" data-aos="fade-up">
+        <div class="section-header">
+            <span class="section-badge">عن الملتقى</span>
+            <h2 class="section-title">ملتقى شامل لجميع أفراد الأسرة</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card" data-aos="zoom-in"><span class="stat-icon">✨</span><span class="stat-number">30+</span><p>ندوة مرافقة</p></div>
+            <div class="stat-card" data-aos="zoom-in"><span class="stat-icon">🌍</span><span class="stat-number">9</span><p>جالية مشاركة</p></div>
+            <div class="stat-card" data-aos="zoom-in"><span class="stat-icon">🏆</span><span class="stat-number">جينيس</span><p>أرقام قياسية</p></div>
+            <div class="stat-card" data-aos="zoom-in"><span class="stat-icon">🎯</span><span class="stat-number">12</span><p>منطقة تفاعلية</p></div>
+        </div>
+    </section>
+
+    <!-- ============ COMPETITIONS SECTION ============ -->
+    <section class="section" id="competitions" data-aos="fade-up">
+        <div class="section-header">
+            <span class="section-badge">🏆 المسابقات</span>
+            <h2 class="section-title">مسابقات وفعاليات خاصة</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="cards-masonry">
+            <div class="glass-card" onclick="openModal('📝 مسابقات الشعر','اكتشف المواهب الشعرية الواعدة')">
+                <span class="card-emoji">📝</span><h4>مسابقات الشعر</h4><span class="card-hint">اكتشف المواهب</span>
+            </div>
+            <div class="glass-card" onclick="openModal('🎭 مسابقات المسرح','عروض إبداعية مميزة')">
+                <span class="card-emoji">🎭</span><h4>مسابقات المسرح</h4><span class="card-hint">عروض إبداعية</span>
+            </div>
+            <div class="glass-card" onclick="openModal('🎵 مسابقات الموسيقى','أنغام وألحان')">
+                <span class="card-emoji">🎵</span><h4>مسابقات الموسيقى</h4><span class="card-hint">أنغام وألحان</span>
+            </div>
+            <div class="glass-card" onclick="openModal('🏺 مسابقات ثقافية وتراثية','تراثنا الغني')">
+                <span class="card-emoji">🏺</span><h4>مسابقات ثقافية وتراثية</h4><span class="card-hint">تراثنا الغني</span>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:35px;">
+            <div class="glass-card" style="display:inline-block;max-width:500px;" data-aos="zoom-in">
+                <span class="card-emoji" style="font-size:4rem;">🌟</span>
+                <h4 style="color:var(--gold);">تحطيم أرقام قياسية عالمية (جينيس)</h4>
+                <p>في عدة مجالات لتعزيز التغطية الإعلامية وجذب الزوار والرعاة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CALENDAR SECTION ============ -->
+    <section class="section" id="calendar" data-aos="fade-up">
+        <div class="section-header">
+            <span class="section-badge">📅 المناسبات العالمية</span>
+            <h2 class="section-title">روزنامة أكتوبر</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="timeline-calendar" id="timelineCalendar"></div>
+    </section>
+
+    <!-- ============ COMMUNITIES SECTION ============ -->
+    <section class="section" id="communities" data-aos="fade-up">
+        <div class="section-header">
+            <span class="section-badge">🌍 الجاليات</span>
+            <h2 class="section-title">الجاليات المشاركة</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="flags-circle" id="flagsCircle"></div>
+    </section>
+
+    <!-- ============ CONTACT SECTION ============ -->
+    <section class="section" id="contact" data-aos="fade-up">
+        <div class="section-header">
+            <span class="section-badge">📧 تواصل معنا</span>
+            <h2 class="section-title">للاستفسار والتعاون</h2>
+            <div class="section-line"></div>
+        </div>
+        <div style="max-width:500px;margin:0 auto;">
+            <div class="glass-card" style="text-align:center;">
+                <span class="card-emoji">📬</span>
+                <h4>البريد الإلكتروني</h4>
+                <a href="mailto:capital.center.2005@gmail.com" style="color:var(--coral);font-weight:700;word-break:break-all;">capital.center.2005@gmail.com</a>
+                <p style="margin-top:15px;">أو عبر واتساب: <a href="https://wa.me/963933438019" style="color:var(--whatsapp);font-weight:700;">00963933438019</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <img src="https://i.imgur.com/9JqjNvn.png" alt="شعار الملتقى" class="footer-logo" onerror="this.src='https://via.placeholder.com/100x100/ffffff/ff3860?text=CF'">
+        <p>© 2026 ملتقى الطفل والأسرة الثاني - جميع الحقوق محفوظة</p>
+        <p>سلطنة عُمان - أكتوبر 2026</p>
+    </footer>
+
+    <!-- ============ CHATBOT ============ -->
+    <div class="chatbot" id="chatbot">
+        <button class="chatbot-btn" id="chatbotBtn" title="المساعد الذكي">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <i class="fas fa-robot"></i>
+                <span>المساعد الذكي للملتقى</span>
+            </div>
+            <div class="chatbot-body" id="chatbotBody">
+                <div class="bot-message">
+                    👋 مرحباً بك في ملتقى الطفل والأسرة الثاني!<br><br>
+                    🗓️ الملتقى يُقام في <strong>أكتوبر 2026</strong> بسلطنة عُمان.<br><br>
+                    💬 اسألني عن الندوات، الجاليات، المسابقات، وكل ما يخص الملتقى!
+                </div>
+            </div>
+            <div class="chatbot-typing" id="chatbotTyping">
+                <span>جاري الكتابة</span>
+                <span class="typing-dots"><span></span><span></span><span></span></span>
+            </div>
+            <div class="chatbot-suggestions" id="chatbotSuggestions">
+                <span class="suggestion-chip" data-query="ما هي الندوات المرافقة؟">🎯 الندوات</span>
+                <span class="suggestion-chip" data-query="كم عدد الجاليات؟">🌍 الجاليات</span>
+                <span class="suggestion-chip" data-query="موعد الملتقى">📅 الموعد</span>
+                <span class="suggestion-chip" data-query="كيف أتواصل معكم؟">📧 التواصل</span>
+                <span class="suggestion-chip" data-query="هل يوجد مسابقات؟">🏆 المسابقات</span>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="اكتب سؤالك...">
+                <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ IMAGE MODAL ============ -->
+    <div class="image-modal-overlay" id="imageModalOverlay">
+        <div class="image-modal-container">
+            <button class="image-modal-close" id="imageModalClose">&times;</button>
+            <img src="https://i.imgur.com/Ut23iJu.png" alt="سوق المنتجات الدولية" id="marketImage">
+            <div class="image-modal-zoom-hint">🖱️ اضغط خارج الصورة للإغلاق</div>
+        </div>
+    </div>
+
+    <!-- ============ GENERAL MODAL ============ -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modalContent">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- ============ SCRIPTS ============ -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: false, offset: 100 });
+
+        // ============ BACKGROUND SLIDESHOW ============
+        const heroBackground = document.getElementById('heroBackground');
+        
+        // صور مناسبة للمؤتمر (أطفال، عائلات، فعاليات، قاعات)
+        const conferenceImages = [
+            'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80',
+            'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1200&q=80',
+            'https://images.unsplash.com/photo-1540479859555-17af45c78602?w=1200&q=80',
+            'https://images.unsplash.com/photo-1597112686599-53fd13e6c13a?w=1200&q=80',
+            'https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&q=80',
+            'https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=1200&q=80',
+            'https://images.unsplash.com/photo-1601397922721-4326ae07bc96?w=1200&q=80',
+            'https://images.unsplash.com/photo-1472162072942-cd5147eb3902?w=1200&q=80'
+        ];
+
+        let currentSlide = 0;
+        const slides = [];
+
+        conferenceImages.forEach((src, index) => {
+            const slide = document.createElement('div');
+            slide.classList.add('hero-bg-slide');
+            slide.style.backgroundImage = `url('${src}')`;
+            if (index === 0) slide.classList.add('active');
+            heroBackground.appendChild(slide);
+            slides.push(slide);
+        });
+
+        function changeBackground() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(changeBackground, 5000);
+
+        // ============ PARTICLES ============
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 35; i++) {
+            const p = document.createElement('div');
+            p.classList.add('particle');
+            const size = Math.random() * 10 + 3;
+            p.style.width = size + 'px'; p.style.height = size + 'px';
+            const colors = ['#ff3860', '#ff7b9c', '#00c9a7', '#5eead4', '#ffd000', '#ff9500', '#8b5cf6', '#b794f4'];
+            p.style.background = colors[Math.floor(Math.random() * colors.length)];
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            p.style.animationDuration = (Math.random() * 12 + 6) + 's';
+            p.style.animationDelay = Math.random() * 5 + 's';
+            particlesContainer.appendChild(p);
+        }
+
+        // ============ DATA ============
+        const activitiesData = {
+            'tab-finance': [
+                { emoji: '💰', title: 'ندوة إدخار المال', desc: 'تعلم أساسيات الادخار والتخطيط المالي للأطفال' },
+                { emoji: '📊', title: 'ندوة إدارة المال', desc: 'مهارات إعداد الميزانية الشخصية وإدارة المصروفات' },
+                { emoji: '📈', title: 'ندوة مبادئ الأسهم والاستثمار', desc: 'مدخل مبسط لعالم الاستثمار وفهم الأسواق المالية' }
+            ],
+            'tab-legal': [
+                { emoji: '👶', title: 'ندوة التعريف بقوانين الطفل', desc: 'تعرف على حقوق الطفل وواجباته' },
+                { emoji: '⚖️', title: 'ندوة التعريف بقوانين الأحداث', desc: 'فهم القوانين المتعلقة بالأحداث' },
+                { emoji: '🚦', title: 'ندوة التعريف بقوانين المرور', desc: 'تعليم قواعد المرور الأساسية للأطفال' },
+                { emoji: '📞', title: 'ندوة الإبلاغ عن الحوادث للأطفال', desc: 'كيفية التصرف في حالات الطوارئ' },
+                { emoji: '🔒', title: 'ندوة الابتزاز الإلكتروني والأمن الرقمي', desc: 'حماية الأطفال من مخاطر الإنترنت' },
+                { emoji: '🚫', title: 'ندوة التوعية بالمخدرات', desc: 'برنامج توعوي عن أضرار المخدرات' },
+                { emoji: '⚠️', title: 'ندوة التوعية بالاتجار بالبشر', desc: 'التعريف بمخاطر الاتجار بالبشر' }
+            ],
+            'tab-family': [
+                { emoji: '🤰', title: 'ندوة الصحة النفسية والجسدية للأم والجنين', desc: 'نصائح للحامل للحفاظ على صحتها وجنينها' },
+                { emoji: '👩‍👧', title: 'ندوة الصحة النفسية والجسدية للأم والطفل', desc: 'برنامج متكامل لرعاية الأم والطفل' }
+            ],
+            'tab-environment': [
+                { emoji: '🌍', title: 'ندوة الحفاظ على البيئة', desc: 'أنشطة تفاعلية لتعليم أهمية البيئة' },
+                { emoji: '♻️', title: 'ندوة إعادة التدوير', desc: 'فن تحويل المخلفات إلى منتجات مفيدة' },
+                { emoji: '🌱', title: 'ندوة الاستدامة البيئية', desc: 'مفاهيم الاستدامة وحماية كوكبنا' }
+            ],
+            'tab-agriculture': [
+                { emoji: '🐝', title: 'ندوة النحالة (إنتاج العسل)', desc: 'عالم النحل وأسرار العسل العُماني' },
+                { emoji: '🌾', title: 'ندوة الزراعة', desc: 'أساسيات الزراعة المنزلية والنباتات العُمانية' },
+                { emoji: '🌴', title: 'ندوة الرطب والتمور', desc: 'أنواع التمور العُمانية ومراحل إنتاجها' },
+                { emoji: '🐄', title: 'ندوة المنتجات الزراعية والحيوانية', desc: 'جولة تعريفية بالمنتجات العُمانية' }
+            ],
+            'tab-entertainment': [
+                { emoji: '🎨', title: 'تلوين للأطفال', desc: 'محطات تلوين إبداعية' },
+                { emoji: '😊', title: 'الرسم على الوجوه', desc: 'فنانون لرسم الوجوه بأشكال مرحة' },
+                { emoji: '🖼️', title: 'الرسم على اللوحات', desc: 'مساحات إبداعية للرسم الحر' },
+                { emoji: '🧱', title: 'تركيب المكعبات', desc: 'تحديات بناء لتنمية التفكير' },
+                { emoji: '💧', title: 'ألعاب مائية', desc: 'منطقة ألعاب مائية آمنة' },
+                { emoji: '📸', title: 'جلسات تصوير للأطفال', desc: 'جلسات احترافية بديكورات مميزة' },
+                { emoji: '🎭', title: 'عروض الأيمراز', desc: 'عروض ترفيهية حية للشخصيات' }
+            ],
+            'tab-zones': [
+                { emoji: '🧩', title: 'منطقة ألعاب الذكاء', desc: 'تحديات وألغاز للإبداع' },
+                { emoji: '❄️', title: 'المنطقة الثلجية', desc: 'تجربة فريدة للعب بالثلج' },
+                { emoji: '🏖️', title: 'منطقة البحر والرمل', desc: 'محاكاة البيئة البحرية' },
+                { emoji: '🦕', title: 'منطقة الديناصورات', desc: 'رحلة لعصر الديناصورات' },
+                { emoji: '🌸', title: 'منطقة الزهور', desc: 'حديقة زهور ساحرة' },
+                { emoji: '💡', title: 'منطقة الأنوار', desc: 'عروض ضوئية مبهرة' },
+                { emoji: '🦋', title: 'منطقة الفراشات', desc: 'حديقة فراشات حية' },
+                { emoji: '🐱', title: 'منطقة الحيوانات الأليفة', desc: 'لقاء مباشر مع الحيوانات' },
+                { emoji: '🦁', title: 'منطقة الحيوانات البرية', desc: 'معرض الحيوانات البرية' },
+                { emoji: '⚽', title: 'منطقة الألعاب الرياضية', desc: 'مسابقات حركية وبدنية' }
+            ]
+        };
+
+        const communitiesList = [
+            { flag: '🇮🇳', name: 'الهندية' }, { flag: '🇪🇬', name: 'المصرية' },
+            { flag: '🇮🇩', name: 'الإندونيسية' }, { flag: '🇨🇳', name: 'الصينية' },
+            { flag: '🇹🇷', name: 'التركية' }, { flag: '🇮🇷', name: 'الإيرانية' },
+            { flag: '🇸🇩', name: 'السودانية' }, { flag: '🇾🇪', name: 'اليمنية' },
+            { flag: '🇹🇿', name: 'التنزانية' }
+        ];
+
+        const calendarEvents = {
+            1: '🎗️ أكتوبر الوردي | 👶 يوم الطفل العربي | 🇨🇳 اليوم الوطني الصيني | 🎵 اليوم العالمي للموسيقى | ☕ اليوم العالمي للقهوة | 👴 اليوم العالمي لكبار السن',
+            2: '😊 يوم الابتسامة العالمي', 4: '🐾 اليوم العالمي للحيوان',
+            5: '👩‍🏫 اليوم العالمي للمعلم', 6: '🇪🇬 ثورة أكتوبر المصرية',
+            10: '🧠 اليوم العالمي للصحة النفسية'
+        };
+
+        // ============ SIDE MENU ============
+        const sideMenu = document.getElementById('sideMenu');
+        const sideMenuOverlay = document.getElementById('sideMenuOverlay');
+        
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            sideMenu.classList.add('open'); 
+            sideMenuOverlay.classList.add('show'); 
+            document.body.style.overflow = 'hidden';
+        });
+        
+        document.getElementById('sideMenuClose').addEventListener('click', closeSideMenu);
+        sideMenuOverlay.addEventListener('click', closeSideMenu);
+        
+        function closeSideMenu() {
+            sideMenu.classList.remove('open'); 
+            sideMenuOverlay.classList.remove('show'); 
+            document.body.style.overflow = '';
+        }
+        
+        document.querySelectorAll('[data-close]').forEach(l => l.addEventListener('click', closeSideMenu));
+
+        // ============ SCROLL HANDLER ============
+        window.addEventListener('scroll', () => {
+            const ws = document.body.scrollTop || document.documentElement.scrollTop;
+            const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById('progress-bar').style.width = (ws/h)*100 + '%';
+            document.getElementById('backToTop').style.display = ws > 600 ? 'block' : 'none';
+            document.getElementById('navbar').classList.toggle('scrolled', ws > 50);
+        });
+        
+        document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+
+        // ============ COUNTDOWN ============
+        function updateCountdown() {
+            const d = new Date('2026-10-01T00:00:00') - new Date();
+            if (d <= 0) { 
+                ['days','hours','minutes','seconds'].forEach(id => document.getElementById(id).textContent='00'); 
+                return; 
+            }
+            document.getElementById('days').textContent = String(Math.floor(d/86400000)).padStart(2,'0');
+            document.getElementById('hours').textContent = String(Math.floor((d%86400000)/3600000)).padStart(2,'0');
+            document.getElementById('minutes').textContent = String(Math.floor((d%3600000)/60000)).padStart(2,'0');
+            document.getElementById('seconds').textContent = String(Math.floor((d%60000)/1000)).padStart(2,'0');
+        }
+        updateCountdown(); 
+        setInterval(updateCountdown, 1000);
+
+        // ============ SEMINARS MODAL ============
+        const seminarsModalOverlay = document.getElementById('seminarsModalOverlay');
+        const seminarsModalClose = document.getElementById('seminarsModalClose');
+        const tabContentArea = document.getElementById('tabContentArea');
+
+        function openSeminarsModal() {
+            seminarsModalOverlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            renderTab('tab-finance');
+            document.querySelectorAll('#tabSidebar .tab-pill').forEach(p => p.classList.remove('active'));
+            document.querySelector('#tabSidebar .tab-pill[data-tab="tab-finance"]').classList.add('active');
+        }
+
+        function closeSeminarsModal() {
+            seminarsModalOverlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('openSeminarsBtn').addEventListener('click', openSeminarsModal);
+
+        document.getElementById('sideSeminarsLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            closeSideMenu();
+            setTimeout(openSeminarsModal, 300);
+        });
+
+        seminarsModalClose.addEventListener('click', closeSeminarsModal);
+        seminarsModalOverlay.addEventListener('click', (e) => {
+            if (e.target === seminarsModalOverlay) closeSeminarsModal();
+        });
+
+        function renderTab(tabId) {
+            const items = activitiesData[tabId] || [];
+            tabContentArea.innerHTML = `<div class="tab-panel active"><div class="cards-masonry">${items.map(item => `
+                <div class="glass-card" onclick="openModal('${item.emoji} ${item.title}','${item.desc}')">
+                    <span class="card-emoji">${item.emoji}</span><h4>${item.title}</h4><span class="card-hint">اضغط للمزيد</span>
+                </div>`).join('')}</div></div>`;
+        }
+
+        renderTab('tab-finance');
+
+        document.querySelectorAll('#tabSidebar .tab-pill').forEach(p => p.addEventListener('click', function() {
+            document.querySelectorAll('#tabSidebar .tab-pill').forEach(x => x.classList.remove('active'));
+            this.classList.add('active');
+            renderTab(this.getAttribute('data-tab'));
+        }));
+
+        // ============ CALENDAR ============
+        (function buildCalendar() {
+            const c = document.getElementById('timelineCalendar');
+            for (let d=1; d<=31; d++) {
+                const el = document.createElement('div');
+                el.classList.add('timeline-day');
+                if (calendarEvents[d]) el.classList.add('has-event');
+                el.innerHTML = `<span class="day-num">${d}</span><span class="day-label">أكتوبر</span>`;
+                if (calendarEvents[d]) {
+                    el.addEventListener('click', () => openModal(
+                        `📅 ${d} أكتوبر 2026`,
+                        calendarEvents[d].split(' | ').join('<br>')
+                    ));
+                }
+                c.appendChild(el);
+            }
+        })();
+
+        // ============ FLAGS ============
+        (function buildFlags() {
+            const c = document.getElementById('flagsCircle');
+            communitiesList.forEach(comm => {
+                const el = document.createElement('div');
+                el.classList.add('flag-circle-item');
+                el.innerHTML = `<div class="flag-circle">${comm.flag}</div><span>الجالية ${comm.name}</span>`;
+                el.addEventListener('click', () => openModal(
+                    `${comm.flag} برنامج الجالية ${comm.name}`,
+                    `البرنامج قيد الإعداد. للاستفسار:<br><a href="mailto:capital.center.2005@gmail.com" style="color:var(--coral);">capital.center.2005@gmail.com</a>`
+                ));
+                c.appendChild(el);
+            });
+        })();
+
+        // ============ GENERAL MODAL ============
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalBody = document.getElementById('modalBody');
+
+        function openModal(title, desc) {
+            modalBody.innerHTML = `<h3>${title}</h3><p style="margin-top:20px;font-size:1.1rem;line-height:2;">${desc}</p>`;
+            modalOverlay.classList.add('show'); 
+            document.body.style.overflow = 'hidden';
+        }
+
+        document.getElementById('modalClose').addEventListener('click', () => {
+            modalOverlay.classList.remove('show'); 
+            document.body.style.overflow = '';
+        });
+        
+        modalOverlay.addEventListener('click', e => {
+            if (e.target===modalOverlay) { 
+                modalOverlay.classList.remove('show'); 
+                document.body.style.overflow = ''; 
+            }
+        });
+
+        // ============ IMAGE MODAL (MARKET) ============
+        const imageModalOverlay = document.getElementById('imageModalOverlay');
+        const imageModalClose = document.getElementById('imageModalClose');
+
+        function openMarketModal(e) {
+            if (e) e.preventDefault();
+            imageModalOverlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            imageModalOverlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        imageModalClose.addEventListener('click', closeImageModal);
+        imageModalOverlay.addEventListener('click', (e) => {
+            if (e.target === imageModalOverlay) closeImageModal();
+        });
+
+        document.getElementById('marketTabLink').addEventListener('click', openMarketModal);
+        document.getElementById('marketSideLink').addEventListener('click', openMarketModal);
+
+        // ============ ESCAPE KEY ============
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (imageModalOverlay.classList.contains('show')) closeImageModal();
+                if (seminarsModalOverlay.classList.contains('show')) closeSeminarsModal();
+                if (modalOverlay.classList.contains('show')) {
+                    modalOverlay.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+
+        // ============ CHATBOT ============
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const chatbotBody = document.getElementById('chatbotBody');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotTyping = document.getElementById('chatbotTyping');
+
+        document.getElementById('chatbotBtn').addEventListener('click', () => {
+            chatbotWindow.classList.toggle('show');
+            if (chatbotWindow.classList.contains('show')) {
+                chatbotInput.focus();
+                chatbotBody.scrollTop = chatbotBody.scrollHeight;
+            }
+        });
+
+        function addMessage(text, isUser = false) {
+            const msgDiv = document.createElement('div');
+            msgDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+            msgDiv.innerHTML = text.replace(/\n/g, '<br>');
+            chatbotBody.appendChild(msgDiv);
+            chatbotBody.scrollTop = chatbotBody.scrollHeight;
+        }
+
+        function showTyping() { chatbotTyping.classList.add('show'); }
+        function hideTyping() { chatbotTyping.classList.remove('show'); }
+
+        function getBotResponse(input) {
+            const query = input.trim().toLowerCase();
+            
+            if (/^(مرحبا|هلا|السلام|اهلا|صباح|مساء|hi|hello)/i.test(query))
+                return '👋 مرحباً بك! كيف أقدر أساعدك اليوم؟';
+            if (/(شكرا|تسلم|يعطيك|مشكور|thank)/i.test(query))
+                return '🤗 العفو! سعيد بخدمتك.';
+            if (/(موعد|تاريخ|متى|وقت|أكتوبر)/i.test(query))
+                return '📅 الملتقى في <strong>أكتوبر 2026</strong> بسلطنة عُمان.';
+            if (/(مكان|موقع|وين|أين)/i.test(query))
+                return '📍 سلطنة عُمان.\n📧 capital.center.2005@gmail.com\n📱 واتساب: 00963933438019';
+            if (/(ندوة|ندوات|نشاط)/i.test(query))
+                return '✨ <strong>30+ ندوة مرافقة!</strong>\nاضغط على "استكشف الندوات المرافقة" في الصفحة الرئيسية.';
+            if (/(جالية|جاليات)/i.test(query))
+                return '🌍 <strong>9 جاليات مشاركة:</strong> ' + communitiesList.map(c => c.flag).join(' ');
+            if (/(سوق|منتجات|دولية)/i.test(query))
+                return '🛒 اضغط على زر "سوق المنتجات الدولية" بجانب أكتوبر 2026.';
+            if (/(مسابقة|مسابقات|جينيس)/i.test(query))
+                return '🏆 مسابقات الشعر، المسرح، الموسيقى، التراث + أرقام جينيس قياسية!';
+            if (/(تواصل|ايميل|بريد|واتس)/i.test(query))
+                return '📧 capital.center.2005@gmail.com\n📱 واتساب: 00963933438019';
+            if (/(مساعدة|help)/i.test(query))
+                return '💬 أسأل عن: الندوات | الجاليات | المسابقات | الموعد | المكان | التواصل | السوق الدولي';
+            
+            return '🤔 لم أفهم. جرب: "الندوات"، "المسابقات"، "موعد الملتقى"، "التواصل"';
+        }
+
+        async function handleUserMessage(message) {
+            if (!message) return;
+            addMessage(message, true);
+            chatbotInput.value = '';
+            showTyping();
+            await new Promise(resolve => setTimeout(resolve, 800 + Math.random() * 1000));
+            hideTyping();
+            addMessage(getBotResponse(message));
+        }
+
+        document.getElementById('chatbotSend').addEventListener('click', () => handleUserMessage(chatbotInput.value.trim()));
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleUserMessage(chatbotInput.value.trim());
+        });
+        document.querySelectorAll('.suggestion-chip').forEach(chip => {
+            chip.addEventListener('click', function() {
+                handleUserMessage(this.getAttribute('data-query'));
+            });
+        });
+
+        // ============ DARK MODE ============
+        const darkToggle = document.getElementById('darkToggle');
+        const darkIcon = darkToggle.querySelector('i');
+        
+        darkToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                darkIcon.classList.replace('fa-moon','fa-sun');
+                localStorage.setItem('darkMode','enabled');
+            } else {
+                darkIcon.classList.replace('fa-sun','fa-moon');
+                localStorage.setItem('darkMode','disabled');
+            }
+        });
+        
+        if (localStorage.getItem('darkMode')==='enabled') {
+            document.body.classList.add('dark-mode');
+            darkIcon.classList.replace('fa-moon','fa-sun');
+        }
+
+        // ============ SMOOTH SCROLL ============
+        document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
+            e.preventDefault();
+            const t = document.querySelector(this.getAttribute('href'));
+            if (t) window.scrollTo({top:t.offsetTop-100,behavior:'smooth'});
+        }));
+
+        console.log('✅ ملتقى الطفل والأسرة الثاني - جاهز!');
+        console.log('👶 خلفية صور مؤتمر متغيرة');
+        console.log('🛒 سوق المنتجات الدولية');
+        console.log('📋 ندوات مرافقة - مودال');
+        console.log('💬 واتساب: 00963933438019');
+    </script>
+</body>
+</html>
